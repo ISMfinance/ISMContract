@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					}
+				],
+				"name": "getproductTokens",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/ISMFactory/contract/IISMFactory.sol": "IISMFactory"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/ISMFactory/contract/IISMFactory.sol": {
+			"keccak256": "0x7456836a6a841a8be631c208df50fc409e1d486d4ebffab821801d84325d735f",
+			"urls": [
+				"bzz-raw://37e5ac36b6827d1675091c071ff83db678f6018824b0266aae785c551ccbb1a2",
+				"dweb:/ipfs/Qmc3HcKzHRnyir8E6AhnkCt8RHFVdUv5B2ahTfnfKc4jWe"
+			]
+		}
+	},
+	"version": 1
+}

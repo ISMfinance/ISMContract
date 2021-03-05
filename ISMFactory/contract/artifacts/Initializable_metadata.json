@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.7.4+commit.3f05b770"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"stateVariables": {
+				"_initialized": {
+					"details": "Indicates that the contract has been initialized."
+				},
+				"_initializing": {
+					"details": "Indicates that the contract is in the process of being initialized."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/ISMFactory/contract/ISMErc20.sol": "Initializable"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/ISMFactory/contract/ISMErc20.sol": {
+			"keccak256": "0x21044d65ddc2e2f8f4452a0b9fc93403bc83130217451bd91d43c061f6c005c0",
+			"license": "No License",
+			"urls": [
+				"bzz-raw://130c655e0ab743253f949a4689d797439ade3a7637d6c1f090668f0b22995e16",
+				"dweb:/ipfs/QmScq9QNJSEURB4ZvQ1JMKPQLzN98VpbWK2A6tiUhZffxi"
+			]
+		}
+	},
+	"version": 1
+}

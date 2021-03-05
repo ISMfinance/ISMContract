@@ -1,0 +1,920 @@
+{
+	"compiler": {
+		"version": "0.7.4+commit.3f05b770"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract ISMFactory",
+						"name": "_ISMFactory",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "collateral",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Addcollateral",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferCompleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferInitiated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "CLAIMTOKEN",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "coverAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "coverAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "RedeemClaim",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "productAddres",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "collateral",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "collateralAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "RedeemCollateral",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "collateral",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "collateralAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "coverAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "coverAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "RedeemUnClaim",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "collateral",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "redeemFee",
+						"type": "uint256"
+					}
+				],
+				"name": "TakeRedeemFee",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "USDT",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addcollateral",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "base1e18",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateClaimAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateRedeemcollateral",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateRedeemcover",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculatecollateralAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculatecoverAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collateral",
+						"type": "address"
+					}
+				],
+				"name": "getRedeemFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getcollateralList",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getcollateralListData",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collateral",
+						"type": "address"
+					}
+				],
+				"name": "getcollateralTotal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					}
+				],
+				"name": "getproductCovers",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "timestamps",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "redeemFee",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "collateral",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "usdtType",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "allCollateralAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "collateralAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "CLAIMTOKEN",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "UNCLAIMTOKEN",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "allClaimAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "claimAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "allUnclaimAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "unclaimAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "coverAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "allCoverAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "coverAmount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ISMContract.productCoverInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getredeemFeeDenominator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getredeemFeeNumerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "initializeOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ismFactory",
+				"outputs": [
+					{
+						"internalType": "contract ISMFactory",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "coverAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "redeemClaim",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "redeemCollateral",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "redeemFeeDenominator",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "redeemFeeNumerator",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "productAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "redeemUnClaim",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "_number",
+						"type": "uint16"
+					}
+				],
+				"name": "setredeemFeeDenominator",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "_number",
+						"type": "uint16"
+					}
+				],
+				"name": "setredeemFeeNumerator",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "collateral",
+						"type": "address"
+					}
+				],
+				"name": "takeRedeemFee",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"initializeOwner()": {
+					"details": "COVER: Initializes the contract setting the deployer as the initial owner."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/ISMFactory/contract/ISMFactory.sol": "ISMContract"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/ISMFactory/contract/Address.sol": {
+			"keccak256": "0xfd10f7cc0be9f03d56d131e53006a5b6a744d566ddffa7f166272361e9c16259",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://88b0e6cc29073f63103d768c9bfaf6f5bc3fc7c5cbf6ee642abbb8fdf9f414f6",
+				"dweb:/ipfs/QmXmta8St92H9T2jwRaDfPi4TRC9ojj2HDAywsy9rAxDDp"
+			]
+		},
+		"localhost/ISMFactory/contract/Create2.sol": {
+			"keccak256": "0x0141eb757081aa2264c6fc4c1d87653b835549f9d23467a6ad07c9d175bd866d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a66a03674cffe16da8d170a0560fe91a1bc2bc3f31b52683119aa19fbcc09185",
+				"dweb:/ipfs/QmXNxkqf3HUKPGpBr8gYB5nYRTZx9D6oKQYSH7VhFJZLes"
+			]
+		},
+		"localhost/ISMFactory/contract/IERC20.sol": {
+			"keccak256": "0x3a677a2f1ed751bb1018444b74e021da63a2165472fca343b54a70c4510a2275",
+			"urls": [
+				"bzz-raw://c9cb53bce5b2807184ce7e9724adfa18dd8e30656a152b918a3c1bcd9a4134f2",
+				"dweb:/ipfs/QmcxncxRMxnKVVGPKhNojpFKceWDj5qsjwRYS1fyoAPuwt"
+			]
+		},
+		"localhost/ISMFactory/contract/IISMERC20.sol": {
+			"keccak256": "0x250619b8e40e5e8f0f1921442f482efd9481f041a512af7b1ebafed56db6ed60",
+			"urls": [
+				"bzz-raw://137cde4749010fe64a96889cc93509177e41dc5602d7376b33062676b661d9eb",
+				"dweb:/ipfs/QmUj27BTHjs53W6VmRhFNDYdgJcjGXuHnmG3H8UEdM8G9D"
+			]
+		},
+		"localhost/ISMFactory/contract/IISMFactory.sol": {
+			"keccak256": "0x7456836a6a841a8be631c208df50fc409e1d486d4ebffab821801d84325d735f",
+			"urls": [
+				"bzz-raw://37e5ac36b6827d1675091c071ff83db678f6018824b0266aae785c551ccbb1a2",
+				"dweb:/ipfs/Qmc3HcKzHRnyir8E6AhnkCt8RHFVdUv5B2ahTfnfKc4jWe"
+			]
+		},
+		"localhost/ISMFactory/contract/ISMFactory.sol": {
+			"keccak256": "0xa3107e050ea0c44ee68a95bb5980a36fe00aefb9ce66bc4dd8c34baa97765b5a",
+			"urls": [
+				"bzz-raw://6809b11b1ca3490e053bd2b561aa9eb8a80a22f041f7dfe1f7e2a7316b816d6a",
+				"dweb:/ipfs/QmT5bshu95zDqchkjKKJr2AJriv5KnPhSJg75mtpm9YZCy"
+			]
+		},
+		"localhost/ISMFactory/contract/InitializableAdminUpgradeabilityProxy.sol": {
+			"keccak256": "0xb504b4a71a686a8e742fc0def1756acaf54960ffa2e43d784a46d03805135c1c",
+			"license": "No License",
+			"urls": [
+				"bzz-raw://3a6f2a6c13065e588ffc335bb0d6b2315353b3e8f54470163745baaa846d2aae",
+				"dweb:/ipfs/QmfLNwhsYboyaJ34zKRpT3JGu6SUmbZjkeRbXeC489jGxP"
+			]
+		},
+		"localhost/ISMFactory/contract/Ownable.sol": {
+			"keccak256": "0x1a73e8d00672a585da6b84b0f414aaaa4d539f2ae89a4982b93502ffc4f02bc2",
+			"license": "No License",
+			"urls": [
+				"bzz-raw://b4b99e4987370f5ce51f9032f79dab09f3a9de033cd7cdc0e1c48f350ebca92a",
+				"dweb:/ipfs/QmQazPHaBqJ1VyhSxet3reKV6tDUn7FNH6z2vA8n7jNYDv"
+			]
+		},
+		"localhost/ISMFactory/contract/SafeERC20.sol": {
+			"keccak256": "0x2eb026e9429e7888299c67980649d8b55b2e42eb64f197c786b3d0980aa9689b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://864380077f9b752538957b5722e4ed43e07789cab35870c9ec75f847b5f7e5d3",
+				"dweb:/ipfs/QmcxDyD7gthXXWmzz9mGz4iNpimFf9mb61NeTLhaVHCddA"
+			]
+		},
+		"localhost/ISMFactory/contract/SafeMath.sol": {
+			"keccak256": "0x0b5ccc8306c46ce8f82d41477290115a06f4464b8448810c32de195807451d4d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://53abcc3766f10e467dbe80882a305dcd9171062e6581e09a62c654a4a7177a49",
+				"dweb:/ipfs/QmQLEFG88aH9HF1GKg9n2R1YpDSJ117jic9M22Y4DQcebX"
+			]
+		}
+	},
+	"version": 1
+}
